@@ -14,8 +14,6 @@ def index(request):
     # that will be passed to the template engine.
     category_list = Category.objects.order_by('-likes')[:5]
     page_list = Page.objects.order_by('-views')[:5]
-    for x in page_list:
-        print(x)
 
     context_dict = {}
     context_dict['boldmessage'] = 'Crunchy, creamy, cookie, candy, cupcake!'
@@ -30,9 +28,6 @@ def about(request):
     context_dict = {'boldmessage': 'Crunchy, creamy, cookie, candy, cupcake!'}
 
     return render(request, 'rango/about.html', context=context_dict)
-    
-    # old chapter 3 code
-    #return HttpResponse("Rango says here is the about page. <a href='/rango/'>Index</a>")
 
 def show_category(request, category_name_slug):
     # Create a context dictionary which we can pass
