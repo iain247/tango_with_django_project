@@ -124,10 +124,10 @@ class Chapter8TemplateTests(TestCase):
             content = request.content.decode('utf-8')
             template_str = self.get_template(os.path.join(template_base_path, template_filename))
 
-            print("block title")
-            print(block_title_pattern)
-            print("template")
-            print(template_str)
+            print("full title")
+            print(full_title_pattern)
+            print("content")
+            print(content)
 
             self.assertTrue(re.search(full_title_pattern, content), f"{FAILURE_HEADER}When looking at the response of GET '{url}', we couldn't find the correct <title> block. Check the exercises on Chapter 8 for the expected title.{FAILURE_FOOTER}")
             self.assertTrue(re.search(block_title_pattern, template_str), f"{FAILURE_HEADER}When looking at the source of template '{template_filename}', we couldn't find the correct template block. Are you using template inheritence correctly, and did you spell the title as in the book? Check the exercises on Chapter 8 for the expected title.{FAILURE_FOOTER}")
